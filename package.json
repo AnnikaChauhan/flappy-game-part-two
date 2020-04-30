@@ -1,0 +1,9 @@
+{
+  "name": "flappy-game-part-two",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "sass": "^1.26.5"
+  }
+}
