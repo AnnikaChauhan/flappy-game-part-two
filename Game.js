@@ -8,7 +8,6 @@ export default class Game {
 
     buildTheGamePage = () => {
         document.getElementById(this.id).innerHTML = '<div id="gameBox"></div>';
-        this.play();
     }
 
     play = () => {
@@ -16,7 +15,11 @@ export default class Game {
         let myObject = new Object('flappyThing');
         gameBoxHTML.innerHTML += myObject.generateObject();
         myObject.fallObjectfall();
-        document.onkeydown = () => { myObject.jumpObjectJump() };
+        document.onkeydown = () => {
+            if(event.which === 32){
+                myObject.jumpObjectJump();
+            }
+        }
 
         let number = 0;
         const interval = () => {
