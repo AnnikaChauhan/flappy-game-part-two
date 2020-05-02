@@ -16,11 +16,10 @@ export default class Game {
         gameBoxHTML.innerHTML += myObject.generateObject();
         myObject.fallObjectfall();
         document.onkeydown = () => {
-            if(event.which === 32){
+            if (event.which === 32) {
                 myObject.jumpObjectJump();
             }
         }
-
         let number = 0;
         const interval = () => {
             setInterval(() => {
@@ -31,11 +30,23 @@ export default class Game {
                     gameBoxHTML.innerHTML += myObstacle.generateObstacle();
                     myObstacle.buildObstacle();
                     myObstacle.moveObstaclemove();
+                    // console.log(myObstacle.height());
+                    // console.log(myObstacle.obstacleRight);
+                    this.hasCollided(myObject);
                 } else {
                     clearInterval(interval);
                 }
-            }, 3000);
+            }, 1000);
         }
         interval();
+        this.hasCollided(myObject);
+        //call the collision detection here, to stop intervals on true
     }
+
+    hasCollided = (obj) => {
+        let objectBottom = obj.objectTop + obj.objectHeight;
+        console.log(obj.objectTop);
+        console.log(objectBottom);
+    }
+
 }

@@ -32,7 +32,7 @@ export default class Obstacle {
     moveObstaclemove = () => {
         const intervals = setInterval(() => {
             if (this.obstacleRight < 750) {
-                this.obstacleRight += 10;
+                this.obstacleRight += 25;
                 document.getElementById(`obstacle-${this.obstacleID}`).style.right = this.obstacleRight;
             }
         }, 200);
